@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>김천 김밥왕 · 보드&제작 MVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html,body{height:100%;margin:0;background:#0b1020;color:#e8f0ff;font-family:system-ui, Noto Sans KR, sans-serif}
+    #app{display:grid;grid-template-rows:auto 1fr auto; height:100%}
+    header,footer{padding:8px 12px;background:#0f1930;border-bottom:1px solid #21335a}
+    footer{border-top:1px solid #21335a;border-bottom:none}
+    #hud{display:flex;gap:12px;align-items:center}
+    .tag{padding:4px 8px;border:1px solid #2a4376;border-radius:10px;background:#0c1730}
+    canvas{display:block; width:100%; height:calc(100vh - 120px); background:linear-gradient(180deg,#0a1226,#0a1122)}
+    #popup{position:fixed; inset:0; display:none; align-items:center; justify-content:center;}
+    #popup .card{background:#0b1426;border:1px solid #28426e;border-radius:14px;padding:16px; width:min(92%,520px)}
+    #popup .btns{margin-top:12px; display:flex; gap:8px; justify-content:flex-end}
+    button{background:#142447;color:#e8f0ff;border:1px solid #2a4376;border-radius:10px;padding:8px 12px;cursor:pointer}
+    button:hover{border-color:#3d61a6}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div id="hud">
+        <div class="tag">상태: <b id="state">BOARD</b></div>
+        <div class="tag">라운드: <b id="round">1</b></div>
+        <div class="tag">인벤토리: <b id="bagCount">0</b></div>
+        <div class="tag">평판: <b id="rep">0</b></div>
+        <div class="tag">골드: <b id="gold">0</b></div>
+        <button id="rollBtn">🎲 굴리기</button>
+        <button id="craftBtn" style="display:none">🍙 제작 시작</button>
+      </div>
+    </header>
+
+    <canvas id="game" width="960" height="540"></canvas>
+
+    <footer>
+      <small>김천 김밥 축제에서 영감 · MVP 프로토타입</small>
+    </footer>
+  </div>
+
+  <div id="popup">
+    <div class="card">
+      <h3 id="popupTitle">이벤트</h3>
+      <div id="popupBody">내용</div>
+      <div class="btns" id="popupBtns"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
